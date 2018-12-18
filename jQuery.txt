@@ -1,0 +1,79 @@
+$(selector).each(function(index,element))
+each() 方法规定为每个匹配元素规定运行的函数。
+function(index,element)必需。为每个匹配元素规定运行的函数。
+index - 选择器的 index 位置
+element - 当前的元素（也可使用 "this" 选择器）
+
+jquery $.each(data, function (index, value) {
+遍历处理data，可以是数组、DOM、json等，取决于直接给定或者ajax返回的类型
+function (index, value)中index是当前元素的位置，value是值。
+
+jQuery 选择器
+#id	$("#lastname")	id="lastname" 的元素 
+
+^((?!NAVIGATE_MANAGER.tree.tree).)*NAVIGATE_MANAGER.tree((?!NAVIGATE_MANAGER.tree.tree).)*$
+
+
+
+数据库导出
+mysqldump -uroot -p1234 iodn > /usr/20181217.sql
+
+
+mac下输入mysql提示command not found: mysql
+2018年07月05日 17:19:20 方便面都有人用吗 阅读数：442
+解决：
+
+ 
+
+首先：1.打开终端　　输入　　open 　.bash_profile
+
+　　　2.追加　　export PATH=${PATH}:/usr/local/mysql/bin
+
+　　　　　　　　mysql=/usr/local/mysql/bin/mysql
+
+　　　　　　　　mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+　　　3.保存并退出
+
+ 
+
+打开终端：　　输入source .bash_profile
+
+                          mysql -u xxx -p xxx　
+
+
+
+
+select area_name as areaName,
+		area_code as areaCode,
+		memo as memo,
+		city_id as cityId,
+		area_id_extend as areaIdExtend,
+		user_id as userId
+		from (iodn_user_areas t
+		LEFT JOIN iodn_area l ON t.area_id=l.idd)
+		where 1=1 and city_id ;
+
+
+SELECT l.idd AS idd,l.lock_type AS lockType,l.lock_address AS address,alarm_type AS alarmType,alarm_level AS alarmLevel,l.lock_name AS lockName,
+			   alarm_category_type AS alarmCategoryType,lock_number AS lockNumber,alarm_time AS createTime,leave_alarm_time AS leaveAlarmTime,alarm_state AS alarmState,
+			   alarm_memo AS memo,l.city_id AS cityId,l.area_id AS areaId,a.area_name AS areaName,c.city_name AS cityName,l.lock_id AS lockId,w.work_order_state as workOrderState 
+	    	FROM ilock_alarm l
+	    	left join iodn_city c on  l.city_id=c.idd
+	    	left join iodn_area a on  l.area_id=a.idd
+	    	left join lock_work_order w on l.idd=w.alarm_id
+	    	WHERE l.area_id=(SELECT * FROM iodn_user_areas WHERE user_id=166)
+		
+	    	 order by l.alarm_state desc,idd desc
+
+	select idd as idd,
+		area_code as areaCode,
+		area_name as areaName,
+		memo as memo,
+		city_id as cityId,
+		area_id_extend as areaIdExtend,
+		user_id as userId
+		from (iodn_user_areas t
+		LEFT JOIN iodn_area l ON t.area_id=l.idd)
+		where 1=1
+		
