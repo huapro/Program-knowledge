@@ -76,4 +76,8 @@ SELECT l.idd AS idd,l.lock_type AS lockType,l.lock_address AS address,alarm_type
 		from (iodn_user_areas t
 		LEFT JOIN iodn_area l ON t.area_id=l.idd)
 		where 1=1
+
+
+mybaits 中没有else要用chose when otherwise 代替
+
 		
